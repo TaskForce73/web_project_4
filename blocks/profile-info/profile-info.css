@@ -1,0 +1,14 @@
+.profile-info {
+    color: white;
+    display: grid;
+    width: 415px;
+    height: 77px;
+    align-self: center;
+    grid-template-columns: 373px 24px;
+    grid-template-rows: 39px 22px;
+    grid-column-gap: 18px;
+    grid-row-gap: 16px;
+    margin-left: 30px;
+    margin-top: 22px;
+    margin-bottom: 21px;
+}

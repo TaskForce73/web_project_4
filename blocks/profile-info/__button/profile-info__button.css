@@ -1,0 +1,8 @@
+.profile-info__button {
+  padding: 7px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+align-self: flex-end;
+}

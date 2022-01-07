@@ -7,3 +7,16 @@
     margin: 0;
     font-weight: normal;
 }
+
+@media screen and (max-width: 320px) {
+    .profile-info__text{
+        font-family: 'Inter', 'sans-serif';
+        font-size: 14px;
+        padding: 0;
+        line-height: 17px;
+        font-weight: normal;
+        font-style: normal;
+        text-align: center;
+        grid-column:  1 / span 2;
+    }
+}

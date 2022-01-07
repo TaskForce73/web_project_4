@@ -6,3 +6,17 @@
   height: 24px;
 align-self: flex-end;
 }
+
+@media screen and (max-width: 320px) {
+  .profile-info__button{
+    padding: 5.25px;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+  align-self: flex-end;
+  justify-self: flex-end;
+  margin: 0 29px 0 0;
+  grid-column: 2 / span 1;
+  }
+}

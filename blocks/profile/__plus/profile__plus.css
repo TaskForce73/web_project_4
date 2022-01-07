@@ -1,7 +1,18 @@
 .profile__plus {
-    padding: 12px 62px 12px 62px;
+  padding: 12px 62px 12px 62px;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  align-self: center;
+  margin-left: 165px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__plus {
+    padding: 15px 131px 15px 131px;
     border: 2px solid #ffffff;
     box-sizing: border-box;
-    align-self: center;
-    margin-left: 165px;
+    align-self: end;
+    max-width: 100%;
+    margin: 0;
+  }
 }

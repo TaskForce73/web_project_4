@@ -6,3 +6,13 @@
     display: flex;
     
 }
+
+@media screen and (max-width: 320px) {
+    .profile {
+      display: flex;
+      flex-direction: column;
+      max-width: 282px;
+      min-height: 286px;
+      margin: 42px auto 36px;
+    }
+}

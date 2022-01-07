@@ -7,3 +7,17 @@
     margin: 0;
   
 }
+
+
+@media screen and (max-width: 320px) {
+    .profile-info__author{
+        font-family: 'Inter', 'sans-serif';
+        font-size: 22px;
+        padding: 0;
+        line-height: 27px;
+        font-weight: 500;
+        font-style: normal;
+        margin: 0 0 0 29px;
+        align-self: flex-start;
+    }
+}

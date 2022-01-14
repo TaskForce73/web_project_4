@@ -17,7 +17,7 @@
   .profile-info {
     max-width: 282px;
     width: 282px;
-    grid-template-columns: 1fr 18px;
+    grid-template-columns: 1fr 50px;
     grid-column-gap: 10px;
     grid-row-gap: 14px;
     align-items: flex-end;

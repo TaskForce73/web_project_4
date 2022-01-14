@@ -8,29 +8,29 @@
     <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body class="main">
-    <div class="page">
       <header class="header">
         <img src="images/header.svg" alt="Around US" class="header__image" />
       </header>
-      
-        <div class="profile">
+      <main class="page">
+        <section class="profile">
           <img
             src="images/Cousteau.png"
             alt="Smiling men"
             class="profile__image"
           />
-
           <div class="profile-info">
             <h1 class="profile-info__author">Jacques Cousteau</h1>
-            <img
-              src="images/edit.svg"
-              alt="edit button"
-              class="profile-info__button"
-            />
+            <button type="button" class="profile-info__edit">
+              <img
+                src="images/edit.svg"
+                alt="edit button"
+                class="profile-info__button"
+              /></button>
             <p class="profile-info__text">Explorer</p>
           </div>
-          <img src="images/plus.svg" alt="vector" class="profile__plus" />
-        </div>
+          <button type="button" class="profile__plus">
+          <img src="images/plus.svg" class="profile__plus_styles" alt="vector plus image"/></button>
+        </section>
 
         <div class="elements">
           <ul class="elements__list">
@@ -43,6 +43,7 @@
               <div class="element__title">
                 Yosemite Valley<img
                   src="images/heart.svg"
+                  alt="like button"
                   class="element__button"
                 />
               </div>
@@ -56,6 +57,7 @@
               <div class="element__title">
                 Lake Louise<img
                   src="images/heart.svg"
+                  alt="like button"
                   class="element__button"
                 />
               </div>
@@ -69,6 +71,7 @@
               <div class="element__title">
                 Bald Mountains<img
                   src="images/heart.svg"
+                  alt="like button"
                   class="element__button"
                 />
               </div>
@@ -80,7 +83,8 @@
                 class="element__picture"
               />
               <div class="element__title">
-                Latemar<img src="images/heart.svg" class="element__button" />
+                Latemar<img src="images/heart.svg" 
+                alt="like button" class="element__button" />
               </div>
             </li>
             <li class="element">
@@ -92,6 +96,7 @@
               <div class="element__title">
                 Vanoise Nationa...<img
                   src="images/heart.svg"
+                  alt="like button"
                   class="element__button"
                 />
               </div>
@@ -105,16 +110,29 @@
               <div class="element__title">
                 Lago di Braies<img
                   src="images/heart.svg"
+                  alt="like button"
                   class="element__button"
                 />
               </div>
             </li>
           </ul>
         </div>
-      
+      </main>
       <footer class="footer">
         <p class="footer__copyright">© 2021 Around The U.S.</p>
       </footer>
-    </div>
+      <div class="popup">
+        <div class="popup__body">
+               <form class="popup__container">
+                <button type="button" class="popup__button popup__close">
+                  <img src="images/Close.svg" alt="close tag" class="popup__close_style"/></button>
+               <h2 class="popup__title">Edit profile</h2>
+               <input id="name" class="popup__text" type="text" name="name" placeholder="Name" required="" value="Jacques Cousteau"/>
+               <input id="about-me" class="popup__text" type="text" name="about-me" placeholder="About me" required="" value="Explorer"/>
+               <input class="popup__submit" type="submit" value="Save"/>
+              </form>
+              </div>
+             </div>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

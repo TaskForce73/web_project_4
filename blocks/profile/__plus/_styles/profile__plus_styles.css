@@ -1,16 +1,13 @@
 .profile__plus_styles {
-    object-fit: cover;
-    padding: 12px 60px 12px 60px;
-    border: 2px solid #ffffff;
-    border-radius: 2px;
-    box-sizing: border-box;
+  object-fit: cover;
+  padding: 12px 60px 12px 60px;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  box-sizing: border-box;
 }
 
-@media screen and (max-width: 320px) {
-    .profile__plus_styles {
+@media screen and (max-width: 580px) {
+  .profile__plus_styles {
     padding: 15px 128px 15px 128px;
-    border: 2px solid #ffffff;
-    border-radius: 2px;
-    box-sizing: border-box;
   }
 }

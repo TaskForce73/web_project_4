@@ -13,13 +13,18 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 580px)  {
   .profile__plus {
     align-self: end;
     max-width: 100%;
     width: 282px;
-    height: 50px;
     margin: 0;
     padding: 0;
+  }
+}
+
+@media screen and (min-width: 581px) and (max-width: 879px)  {
+  .profile__plus {
+    margin-left: 45px;
   }
 }

@@ -1,138 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Around The U.S.</title>
-    <link rel="stylesheet" href="pages/index.css" />
-  </head>
-  <body class="main">
-      <header class="header">
-        <img src="images/header.svg" alt="Around US" class="header__image" />
-      </header>
-      <main class="page">
-        <section class="profile">
-          <img
-            src="images/Cousteau.png"
-            alt="Smiling men"
-            class="profile__image"
-          />
-          <div class="profile-info">
-            <h1 class="profile-info__author">Jacques Cousteau</h1>
-            <button type="button" class="profile-info__edit">
-              <img
-                src="images/edit.svg"
-                alt="edit button"
-                class="profile-info__button"
-              /></button>
-            <p class="profile-info__text">Explorer</p>
-          </div>
-          <button type="button" class="profile__plus">
-          <img src="images/plus.svg" class="profile__plus_styles" alt="vector plus image"/></button>
-        </section>
 
-        <div class="elements">
-          <ul class="elements__list">
-            <li class="element">
-              <img
-                src="images/grid1.png"
-                alt="river in the forest"
-                class="element__picture"
-              />
-              <div class="element__title">
-                Yosemite Valley<img
-                  src="images/heart.svg"
-                  alt="like button"
-                  class="element__button"
-                />
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="images/grid2.png"
-                alt="crystal lake"
-                class="element__picture"
-              />
-              <div class="element__title">
-                Lake Louise<img
-                  src="images/heart.svg"
-                  alt="like button"
-                  class="element__button"
-                />
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="images/grid3.png"
-                alt="some image"
-                class="rising of the morning sun"
-              />
-              <div class="element__title">
-                Bald Mountains<img
-                  src="images/heart.svg"
-                  alt="like button"
-                  class="element__button"
-                />
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="images/grid4.png"
-                alt="stars under the mountains"
-                class="element__picture"
-              />
-              <div class="element__title">
-                Latemar<img src="images/heart.svg" 
-                alt="like button" class="element__button" />
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="images/grid5.png"
-                alt="near the mountain's lake"
-                class="element__picture"
-              />
-              <div class="element__title">
-                Vanoise Nationa...<img
-                  src="images/heart.svg"
-                  alt="like button"
-                  class="element__button"
-                />
-              </div>
-            </li>
-            <li class="element">
-              <img
-                src="images/grid6.png"
-                alt="some old boats and beutiful view to the mountains"
-                class="element__picture"
-              />
-              <div class="element__title">
-                Lago di Braies<img
-                  src="images/heart.svg"
-                  alt="like button"
-                  class="element__button"
-                />
-              </div>
-            </li>
-          </ul>
-        </div>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright">© 2021 Around The U.S.</p>
-      </footer>
-      <div class="popup">
-        <div class="popup__body">
-               <form class="popup__container">
-                <button type="button" class="popup__button popup__close">
-                  <img src="images/Close.svg" alt="close tag" class="popup__close_style"/></button>
-               <h2 class="popup__title">Edit profile</h2>
-               <input id="name" class="popup__text" type="text" name="name" placeholder="Name" required="" value="Jacques Cousteau"/>
-               <input id="about-me" class="popup__text" type="text" name="about-me" placeholder="About me" required="" value="Explorer"/>
-               <input class="popup__submit" type="submit" value="Save"/>
-              </form>
-              </div>
-             </div>
-    <script src="scripts/script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Around The U.S.</title>
+  <link rel="stylesheet" href="pages/index.css" />
+</head>
+
+<body class="main">
+  <header class="header">
+    <img src="images/header.svg" alt="Around US" class="header__image" />
+  </header>
+  <main class="page">
+    <section class="profile">
+      <img src="images/Cousteau.png" alt="Smiling men" class="profile__image" />
+      <div class="profile__info">
+        <h1 class="profile__author">Jacques Cousteau</h1>
+        <button aria-label="edit" type="button" class="profile__edit">
+        </button>
+        <p class="profile__text">Explorer</p>
+      </div>
+      <button aria-label="add" type="button" class="profile__plus">
+        <img src="images/plus.svg" class="profile__plus_styles" alt="vector plus image" /></button>
+    </section>
+
+    <section class="elements">
+      <ul class="elements__list">
+        <li class="element">
+          <img src="images/grid1.png" alt="river in the forest" class="element__picture" />
+          <div class="element__title">
+            <h2 class="element__header">Yosemite Valley</h2>
+            <button aria-label="like" type="button" class="element__button">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/grid2.png" alt="crystal lake" class="element__picture" />
+          <div class="element__title">
+            <h2 class="element__header">Lake Louise</h2>
+            <button aria-label="like" type="button" class="element__button">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/grid3.png" alt="some image" class="rising of the morning sun" />
+          <div class="element__title">
+            <h2 class="element__header">Bald Mountaines</h2>
+            <button aria-label="like" type="button" class="element__button">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/grid4.png" alt="stars under the mountains" class="element__picture" />
+          <div class="element__title">
+            <h2 class="element__header">Latemar</h2>
+            <button aria-label="like" type="button" class="element__button">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/grid5.png" alt="near the mountain's lake" class="element__picture" />
+          <div class="element__title">
+            <h2 class="element__header">Vanoise Nationa...</h2>
+            <button aria-label="like" type="button" class="element__button">
+          </div>
+        </li>
+        <li class="element">
+          <img src="images/grid6.png" alt="some old boats and beutiful view to the mountains"
+            class="element__picture" />
+          <div class="element__title">
+            <h2 class="element__header">Lago di Braies</h2>
+            <button aria-label="like" type="button" class="element__button">
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2021 Around The U.S.</p>
+  </footer>
+  <div class="popup">
+    <div class="popup__body">
+      <form name="editForm" class="popup__container">
+        <button aria-label="close" type="button" class="popup__close">
+        </button>
+        <h2 class="popup__title">Edit profile</h2>
+        <input class="popup__text current-name" type="text" name="name" placeholder="Name" required
+          value="Jacques Cousteau" />
+        <input class="popup__text about-me" type="text" name="about-me" placeholder="About me" required
+          value="Explorer" />
+        <input class="popup__submit" type="submit" value="Save" />
+      </form>
+    </div>
+  </div>
+  <script src="scripts/script.js"></script>
+</body>
+
 </html>

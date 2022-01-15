@@ -5,27 +5,25 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  padding:0 0 13.26px;
+  padding: 0 0 13.26px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin: 0 36px 29.74px 36px;
 }
 .popup__text:focus {
-    outline: none;
+  outline: none;
 }
 .popup__text:nth-last-child(2) {
-    margin: 0 36px 0 36px;
+  margin: 0 36px 0 36px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 580px) {
   .popup__text {
     max-width: 238px;
     margin: 0 22px 30px;
-    font-size: 14px;
-    line-height: 17px;
     padding: 0 0 9px;
   }
   .popup__text:nth-last-child(2) {
     margin: 0 22px 0 22px;
-}
+  }
 }

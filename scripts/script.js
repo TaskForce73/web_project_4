@@ -4,8 +4,8 @@ let editProfileButton = document.querySelector('.profile__edit');
 let popupClose = popup.querySelector('.popup__close');
 let profileName = document.querySelector('.profile__author');
 let profileText = document.querySelector(".profile__text");
-let currentName = popup.querySelector('.current-name');
-let aboutMe = popup.querySelector('.about-me');
+let currentName = popup.querySelector('.popup__text_input_name');
+let aboutMe = popup.querySelector('.popup__text_input_about');
 function getProfileInfo() {
   currentName.value = profileName.textContent;
     aboutMe.value = profileText.textContent;

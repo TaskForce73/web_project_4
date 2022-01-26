@@ -1,5 +1,5 @@
 const popup = document.querySelector(".popup");
-let popupSecond = document.querySelector(".popup__second");
+let popupSecond = document.querySelector(".popup_card_publisher");
 let plusProfileButton = document.querySelector(".profile__plus");
 let popupContainer = popup.querySelector(".popup__container");
 let editProfileButton = document.querySelector(".profile__edit");
@@ -20,7 +20,7 @@ const cardTemplate = document
   const popupCloseImage = document.querySelector(".popup__close_image");
   const popupImage = document.querySelector(".popup__image");
   const popupDescriptionImage = document.querySelector(".popup__description");
-  const showImage = document.querySelector(".popup__third");
+  const showImage = document.querySelector(".popup_big_image");
 const initialCards = [
   {
     name: "Yosemite Valley",

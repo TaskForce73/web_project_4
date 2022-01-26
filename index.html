@@ -28,49 +28,6 @@
 
     <section class="elements">
       <ul class="elements__list">
-        <li class="element">
-          <img src="images/grid1.png" alt="river in the forest" class="element__picture" />
-          <div class="element__title">
-            <h2 class="element__header">Yosemite Valley</h2>
-            <button aria-label="like" type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="images/grid2.png" alt="crystal lake" class="element__picture" />
-          <div class="element__title">
-            <h2 class="element__header">Lake Louise</h2>
-            <button aria-label="like" type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="images/grid3.png" alt="some image" class="rising of the morning sun" />
-          <div class="element__title">
-            <h2 class="element__header">Bald Mountaines</h2>
-            <button aria-label="like" type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="images/grid4.png" alt="stars under the mountains" class="element__picture" />
-          <div class="element__title">
-            <h2 class="element__header">Latemar</h2>
-            <button aria-label="like" type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="images/grid5.png" alt="near the mountain's lake" class="element__picture" />
-          <div class="element__title">
-            <h2 class="element__header">Vanoise Nationa...</h2>
-            <button aria-label="like" type="button" class="element__button"></button>
-          </div>
-        </li>
-        <li class="element">
-          <img src="images/grid6.png" alt="some old boats and beutiful view to the mountains"
-            class="element__picture" />
-          <div class="element__title">
-            <h2 class="element__header">Lago di Braies</h2>
-            <button aria-label="like" type="button" class="element__button"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -91,6 +48,40 @@
       </form>
     </div>
   </div>
+  
+  <div class="popup popup__second">
+    <div class="popup__body">
+     <button aria-label="close" type="button" class="popup__close popup__close_second"> 
+      </button> 
+      <form name="placeForm" class="popup__container popup__container_second">
+        <h2 class="popup__title">New Place</h2>
+        <input class="popup__text popup__text_input_description" type="text" name="description" placeholder="Title" required
+           />
+        <input class="popup__text popup__text_input_link" type="url" name="link" placeholder="Image URL" required/>
+        <input class="popup__submit" type="submit" value="Save" />
+      </form>
+    </div>
+  </div>
+<template id="card-template">
+  <li class="element">
+    <img src="#" alt="any image you want"
+      class="element__picture"></img>
+      <img src="images/trash.svg" alt="recycle bin"  class="element__bin"/>
+    <div class="element__title">
+      <h2 class="element__header">New card</h2>
+      <button aria-label="like" type="button" class="element__button"></button>
+    </div>
+  </li>
+</template>
+
+<div class="popup popup__third">
+  <div class="popup__wrapper">
+    <button aria-label="close" type="button" class="popup__close popup__close_image"></button>
+    <img class="popup__image" src="https://code.s3.yandex.net/web-code/yosemite.jpg" alt="#">
+    <p class="popup__description">Something</p>
+</div>
+</div>
+
   <script src="scripts/script.js"></script>
 </body>
 

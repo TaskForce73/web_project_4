@@ -14,7 +14,4 @@
   opacity: 0.5;
 }
 
-.element__button:active {
-  opacity: 1;
-  background-image: url(../../../images/blackheart.svg);
-}
+

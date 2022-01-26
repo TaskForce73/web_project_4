@@ -1,0 +1,10 @@
+.element__bin {
+  position: absolute;
+  margin: 18px 0 30px -30px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+.element__bin:hover {
+    opacity: 0.6;
+}

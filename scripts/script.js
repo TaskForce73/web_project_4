@@ -57,14 +57,13 @@ const createNewCard = (cardPropsObject) => {
   newCardImage.src = link;
   newCardImage.alt = `Photo of ${name}`;
   cardTitle.textContent = name;
-  elementList.prepend(card);
-  const popupPicture = document.querySelector(".element__picture");
+  const popupPicture = card.querySelector(".element__picture");
   popupPicture.addEventListener("click", function () {
     const descriptionPic =
       popupPicture.parentNode.querySelector(".element__header");
     openImage(popupPicture.currentSrc, descriptionPic.textContent);
   });
-  const elementRecycleBin = document.querySelector(".element__bin");
+  const elementRecycleBin = card.querySelector(".element__bin");
   elementRecycleBin.addEventListener("click", function () {
     elementRecycleBin.parentNode.remove();
   });
@@ -75,11 +74,10 @@ const createNewCard = (cardPropsObject) => {
   return card;
 };
 
-/*const renderCard = (cardPropsObject) => {
+const renderCard = (cardPropsObject) => {
   const card = createNewCard(cardPropsObject);
   elementList.prepend(card);
-};*/
-//Hi again, Ksenya! I'm sorry but I realy don't know how to correctly realise this function. I spent a lot of time to change it consistion and place where it should appear in order to make it work, but It still doesn't work. 
+};
 
 const initializeCards = () => {
   const initialCardsReversed = initialCards.reverse();
@@ -88,7 +86,7 @@ const initializeCards = () => {
       name: item.name,
       link: item.link,
     };
-    createNewCard(cardPropsObject);
+    renderCard(cardPropsObject);
   });
 };
 initializeCards();
@@ -114,11 +112,11 @@ function handleSubmitButton(e) {
 
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
-  const newCardObj = {
+  const newCardObject = {
     link: newCardLink.value,
     name: newCardTitle.value,
   };
-  createNewCard(newCardObj);
+  renderCard(newCardObject);
   closeCardPopup();
   popupSecondContainer.reset();
 }

@@ -19,10 +19,6 @@
   box-shadow: 0 0 3px 3px rgb(31, 143, 235);
 }
 
-.popup__input:focus {
-  outline: none;
-}
-
 @media screen and (max-width: 580px) {
   .popup__input {
     max-width: 238px;

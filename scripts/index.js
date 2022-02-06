@@ -22,33 +22,6 @@ const popupImage = document.querySelector(".popup__image");
 const popupDescriptionImage = document.querySelector(".popup__description");
 const imagePopup = document.querySelector(".popup_big_image");
 const elementList = document.querySelector(".elements__list");
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
-
 const createNewCard = (cardPropsObject) => {
   const { name, link } = cardPropsObject;
   const card = cardTemplate.cloneNode(true);
@@ -58,14 +31,16 @@ const createNewCard = (cardPropsObject) => {
   newCardImage.alt = `Photo of ${name}`;
   cardTitle.textContent = name;
   const popupPicture = card.querySelector(".element__picture");
-  popupPicture.addEventListener("click", function () {
-    const descriptionPic =
-      popupPicture.parentNode.querySelector(".element__header");
-    openImage(popupPicture.currentSrc, descriptionPic.textContent);
-  });
+  const descriptionPicture =
+    popupPicture.parentNode.querySelector(".element__header");
+  const handlePopupPicture = () => {
+    openImage(popupPicture.currentSrc, descriptionPicture.textContent);
+  };
+  popupPicture.addEventListener("click", handlePopupPicture);
   const elementRecycleBin = card.querySelector(".element__bin");
   elementRecycleBin.addEventListener("click", function () {
-    elementRecycleBin.parentNode.remove();
+    const mainElement = elementRecycleBin.closest(".element");
+    mainElement.remove();
   });
   const likeButton = card.querySelector(".element__button");
   likeButton.addEventListener("click", function () {
@@ -124,6 +99,7 @@ function handleAddCardFormSubmit(e) {
 
 function openPopup(popup) {
   popup.classList.add("popup_open");
+  document.addEventListener("keydown", closePopupWithEsc);
 }
 
 function openAddCardPopup() {
@@ -141,6 +117,7 @@ function openImagePopup() {
 
 function closePopup(popup) {
   popup.classList.remove("popup_open");
+  document.removeEventListener("keydown", closePopupWithEsc);
 }
 
 function closeCardPopup() {
@@ -155,14 +132,12 @@ function closeImagePopup() {
   closePopup(imagePopup);
 }
 
-document.addEventListener("keydown", function (evt) {
-  const key = evt.key;
-  if (key === "Escape") {
-    closePopup(profilePopup);
-    closePopup(imagePopup);
-    closePopup(cardPopup);
+const closePopupWithEsc = (event) => {
+  if (event.key === "Escape") {
+    const popupOpenClass = document.querySelector(".popup_open");
+    closePopup(popupOpenClass);
   }
-});
+};
 
 document.addEventListener("click", function (evt) {
   if (evt.target === profilePopup) {

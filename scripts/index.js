@@ -101,6 +101,7 @@ function handleAddCardFormSubmit(e) {
 function openPopup(popup) {
   popup.classList.add("popup_open");
   document.addEventListener("keydown", closePopupWithEsc);
+  document.addEventListener("click", closePopupOverlay);
 }
 
 function openAddCardPopup() {
@@ -119,6 +120,7 @@ function openImagePopup() {
 function closePopup(popup) {
   popup.classList.remove("popup_open");
   document.removeEventListener("keydown", closePopupWithEsc);
+  document.removeEventListener("click", closePopupOverlay);
 }
 
 function closeCardPopup() {
@@ -138,19 +140,13 @@ const closePopupWithEsc = (event) => {
     const popupOpenClass = document.querySelector(".popup_open");
     closePopup(popupOpenClass);
   }
-};
+}
 
-document.addEventListener("click", function (evt) { 
-  if (evt.target === profilePopup) { 
-closePopup(profilePopup); 
-} 
-if (evt.target === imagePopup) { 
-  closePopup(imagePopup); 
-} 
-if (evt.target === cardPopup) { 
-  closePopup(cardPopup); 
-} 
-}); 
+function closePopupOverlay(event) {
+  if (event.target.classList.contains("popup_open")) {
+    closePopup(event.target);
+  }
+}
 
 closeImagePopupButton.addEventListener("click", closeImagePopup);
 editProfileButton.addEventListener("click", openProfilePopup);

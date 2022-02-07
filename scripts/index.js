@@ -140,6 +140,18 @@ const closePopupWithEsc = (event) => {
   }
 };
 
+document.addEventListener("click", function (evt) { 
+  if (evt.target === profilePopup) { 
+closePopup(profilePopup); 
+} 
+if (evt.target === imagePopup) { 
+  closePopup(imagePopup); 
+} 
+if (evt.target === cardPopup) { 
+  closePopup(cardPopup); 
+} 
+}); 
+
 closeImagePopupButton.addEventListener("click", closeImagePopup);
 editProfileButton.addEventListener("click", openProfilePopup);
 closeProfilePopupButton.addEventListener("click", closeProfilePopup);

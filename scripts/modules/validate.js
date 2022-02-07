@@ -1,4 +1,4 @@
-const PageSettings = {
+const pageSettings = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -66,18 +66,15 @@ const setEventListeners = (formElement, settings) => {
   });
 };
 
-function enableValidation(settings) {
+const enableValidation = (settings) => {
   const formsList = Array.from(
     document.querySelectorAll(settings.formSelector)
   );
   formsList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
-    const fieldset = formElement.querySelectorAll(".popup__fieldset");
-    fieldset.forEach((field) => {
-      setEventListeners(field, settings);
-    });
+    formElement.addEventListener("submit", (e) => e.preventDefault());
+    setEventListeners(formElement, settings);
   });
-}
-enableValidation(PageSettings);
+};
+
+enableValidation(pageSettings);
+

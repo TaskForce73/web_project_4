@@ -22,6 +22,7 @@ const popupImage = document.querySelector(".popup__image");
 const popupDescriptionImage = document.querySelector(".popup__description");
 const imagePopup = document.querySelector(".popup_big_image");
 const elementList = document.querySelector(".elements__list");
+
 const createNewCard = (cardPropsObject) => {
   const { name, link } = cardPropsObject;
   const card = cardTemplate.cloneNode(true);
@@ -138,18 +139,6 @@ const closePopupWithEsc = (event) => {
     closePopup(popupOpenClass);
   }
 };
-
-document.addEventListener("click", function (evt) {
-  if (evt.target === profilePopup) {
-    closePopup(profilePopup);
-  }
-  if (evt.target === imagePopup) {
-    closePopup(imagePopup);
-  }
-  if (evt.target === cardPopup) {
-    closePopup(cardPopup);
-  }
-});
 
 closeImagePopupButton.addEventListener("click", closeImagePopup);
 editProfileButton.addEventListener("click", openProfilePopup);

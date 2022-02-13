@@ -53,7 +53,6 @@
               type="text"
               name="name"
               placeholder="Name"
-              value="Jacques Cousteau"
               minlength="2"
               maxlength="40"
               required
@@ -65,7 +64,6 @@
               type="text"
               name="about-me"
               placeholder="About me"
-              value="Explorer"
               minlength="2"
               maxlength="200"
               required
@@ -83,7 +81,7 @@
           type="button"
           class="popup__close popup__close_second"
         ></button>
-        <form name="placeForm" class="popup__form popup__form_second">
+        <form id="placeForm" name="placeForm" class="popup__form popup__form_second">
           <h2 class="popup__title">New Place</h2>
             <input
               class="popup__input popup__input-description"
@@ -139,8 +137,9 @@
         <p class="popup__description">Something</p>
       </div>
     </div>
-    <script src="scripts/modules/validate.js" defer></script>
-    <script src="scripts/modules/cards.js" defer></script>
-    <script src="scripts/index.js" defer></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/Card.js"></script>
+    <script type="module" src="./scripts/utils.js"></script>
+    <script type="module" src="./scripts/FromValidator.js"></script>
   </body>
 </html>

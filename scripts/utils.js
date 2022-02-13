@@ -1,4 +1,3 @@
-export { openPopup, closePopup };
 function openPopup(popup) {
   popup.classList.add("popup_open");
   document.addEventListener("keydown", closePopupWithEsc);
@@ -23,3 +22,5 @@ function closePopupOverlay(event) {
     closePopup(event.target);
   }
 }
+
+export { openPopup, closePopup };

@@ -7,32 +7,32 @@ export default class Card {
     this._cardSelector = cardSelector;
   }
 
-  _getTemplate() {
-    const cardElement = document
+  _getTemplate = () => {
+    this._element = document
       .querySelector(this._cardSelector)
       .content.querySelector(".element")
       .cloneNode(true);
-    this._element = cardElement;
     return this._element;
   }
 
-  _handleDeleteButton() {
-    const card = this._element;
-    card.remove();
+  _handleDeleteButton = () => {
+    const card = this._element; 
+    card.remove(); 
+    this._element = null;
   }
 
-  _handleLikeButton() {
+  _handleLikeButton = () => {
     this._likeButton.classList.toggle("element__button_active");
   }
 
-  _handlePopupPicture() {
+  _handlePopupPicture = () => {
     popupImage.src = this._link;
     popupImage.alt = `Photo of ${this._name}`;
     popupDescriptionImage.textContent = this._name;
     openImagePopup();
   }
 
-  _setEventListeners() {
+  _setEventListeners = () => {
     this._element
       .querySelector(".element__bin")
       .addEventListener("click", () => {
@@ -46,7 +46,7 @@ export default class Card {
     });
   }
 
-  generateCard() {
+  generateCard = () => {
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector(".element__button");
     this._elementPicture = this._element.querySelector(".element__picture");

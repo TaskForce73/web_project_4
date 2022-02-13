@@ -2,4 +2,5 @@
     opacity: 1;
     visibility: visible;
     transition: opacity 900ms 100ms;
+    pointer-events: all;
 }

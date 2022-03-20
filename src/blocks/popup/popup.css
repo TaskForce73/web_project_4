@@ -11,5 +11,5 @@
   box-shadow:1px 3px 10px #000000;
   border-radius:3px;
   transition:all 0.9s ease;
-  pointer-events: none
+  pointer-events: none;
 }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Around The U.S.</title>
+  </head>
+
+  <body class="main">
+    <header class="header">
+      <img id="around-the-us" alt="Around US" class="header__image" />
+    </header>
+    <main class="page">
+      <section class="profile">
+        <img id="profile-image" alt="Smiling men" class="profile__image" />
+        <div class="profile__info">
+          <h1 class="profile__author">Jacques Cousteau</h1>
+          <button
+            aria-label="edit"
+            type="button"
+            class="profile__edit"
+          ></button>
+          <p class="profile__text">Explorer</p>
+        </div>
+        <button
+          aria-label="add"
+          type="button"
+          class="profile__plus submit-button"
+        ></button>
+      </section>
+
+      <section class="elements">
+        <ul class="elements__list"></ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2021 Around The U.S.</p>
+    </footer>
+    <div class="popup popup_profile_adder">
+      <div class="popup__body">
+        <button aria-label="close" type="button" class="popup__close"></button>
+        <form id="editProfileForm" name="editForm" class="popup__form">
+          <h2 class="popup__title">Edit profile</h2>
+          <input
+            class="popup__input popup__input-name"
+            id="name-input"
+            type="text"
+            name="name"
+            placeholder="Name"
+            minlength="2"
+            maxlength="40"
+            required
+          />
+          <span class="popup__error name-input-error"></span>
+          <input
+            class="popup__input popup__input-about"
+            id="about-input"
+            type="text"
+            name="about"
+            placeholder="About"
+            minlength="2"
+            maxlength="200"
+            required
+          />
+          <span class="popup__error about-input-error"></span>
+          <button class="popup__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_card_publisher">
+      <div class="popup__body">
+        <button aria-label="close" type="button" class="popup__close"></button>
+        <form
+          id="placeForm"
+          name="placeForm"
+          class="popup__form popup__form_second"
+        >
+          <h2 class="popup__title">New Place</h2>
+          <input
+            class="popup__input popup__input-description"
+            id="description-input"
+            type="text"
+            name="description"
+            placeholder="Title"
+            minlength="1"
+            maxlength="30"
+            required
+          />
+          <span class="popup__error description-input-error"></span>
+          <input
+            class="popup__input popup__input-link"
+            id="link-input"
+            type="url"
+            name="link"
+            placeholder="Image URL"
+            required
+          />
+          <span class="popup__error link-input-error"></span>
+          <button class="popup__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <template id="card-template">
+      <li class="element">
+        <img src="#" alt="#" class="element__picture" />
+        <img
+          src="<%= require('./images/trash.svg')%>"
+          alt="recycle bin"
+          class="element__bin"
+        />
+        <div class="element__title">
+          <h2 class="element__header">New card</h2>
+          <button
+            aria-label="like"
+            type="button"
+            class="element__button"
+          ></button>
+        </div>
+      </li>
+    </template>
+
+    <div class="popup popup_big_image">
+      <div class="popup__wrapper">
+        <button aria-label="close" type="button" class="popup__close"></button>
+        <img class="popup__image" src="#" alt="#" />
+        <p class="popup__description"></p>
+      </div>
+    </div>
+  </body>
+</html>

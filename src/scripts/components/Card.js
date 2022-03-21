@@ -25,14 +25,11 @@ export default class Card {
   };
 
   _setEventListeners = () => {
-    this._element
-      .querySelector(".element__bin")
-      .addEventListener("click", () => {
-        this._handleDeleteButton();
-      });
-    this._likeButton.addEventListener("click", () => {
-      this._handleLikeButton();
+    this._elementBin = this._element.querySelector(".element__bin");
+    this._elementBin.addEventListener("click", () => {
+      this._handleDeleteButton();
     });
+    this._likeButton.addEventListener("click", this._handleLikeButton);
     this._elementPicture.addEventListener("click", () => {
       this._handleCardClick(this._name, this._link);
     });

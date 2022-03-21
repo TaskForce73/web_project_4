@@ -1,12 +1,4 @@
-export {
-  initialCards,
-  pageSettings,
-  plusProfileButton,
-  profileForm,
-  editProfileButton,
-  cardForm,
-  elementList,
-};
+export { initialCards, pageSettings };
 
 const initialCards = [
   {
@@ -44,8 +36,4 @@ const pageSettings = {
   errorClass: "popup__error_visible",
 };
 
-const plusProfileButton = document.querySelector(".profile__plus");
-const profileForm = document.querySelector(".popup__form");
-const editProfileButton = document.querySelector(".profile__edit");
-const cardForm = document.querySelector(".popup__form_second");
-const elementList = document.querySelector(".elements__list");
+// I asked tutors about constants and a possibility to leave some of them here in constants.js. They told me that i could leave those two here, but if it's nessesary to move them too I will do so. I hope this isn't a mistake :-)

@@ -5,15 +5,15 @@ import PopupWithForm from "../scripts/components/PopupWithForm";
 import UserInfo from "../scripts/components/UserInfo";
 import Section from "../scripts/components/Section";
 import FormValidator from "../scripts/components/FromValidator";
-import {
-  initialCards,
-  pageSettings,
-  plusProfileButton,
-  profileForm,
-  editProfileButton,
-  cardForm,
-  elementList,
-} from "../scripts/utils/constants";
+import { initialCards, pageSettings } from "../scripts/utils/constants";
+
+const plusProfileButton = document.querySelector(".profile__plus");
+const profileForm = document.querySelector(".popup__form");
+const editProfileButton = document.querySelector(".profile__edit");
+const cardForm = document.querySelector(".popup__form_second");
+const elementList = document.querySelector(".elements__list");
+const profileInputName = document.querySelector(".popup__input-name");
+const profileInputAbout = document.querySelector(".popup__input-about");
 
 import headerSrc from "../images/header.svg";
 const headerImage = document.getElementById("around-the-us");
@@ -54,9 +54,7 @@ const renderCard = (data) => {
 const section = new Section(
   {
     items: initialCards.reverse(),
-    renderer: (data) => {
-      renderCard(data);
-    },
+    renderer: renderCard,
   },
   ".elements__list"
 );
@@ -77,6 +75,9 @@ function createNewCard(item) {
 
 editProfileButton.addEventListener("click", () => {
   profileFormValidator.resetValidation(profileForm);
+  const userData = userInfo.getUserInfo();
+  profileInputName.value = userData.name;
+  profileInputAbout.value = userData.job;
   editModal.open();
 });
 

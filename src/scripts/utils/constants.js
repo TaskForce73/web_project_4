@@ -36,4 +36,3 @@ const pageSettings = {
   errorClass: "popup__error_visible",
 };
 
-// I asked tutors about constants and a possibility to leave some of them here in constants.js. They told me that i could leave those two here, but if it's nessesary to move them too I will do so. I hope this isn't a mistake :-)

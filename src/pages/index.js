@@ -73,11 +73,15 @@ function createNewCard(item) {
   return cardElement;
 }
 
-editProfileButton.addEventListener("click", () => {
-  profileFormValidator.resetValidation(profileForm);
+function fillProfileForm() {
   const userData = userInfo.getUserInfo();
   profileInputName.value = userData.name;
   profileInputAbout.value = userData.job;
+}
+
+editProfileButton.addEventListener("click", () => {
+  profileFormValidator.resetValidation(profileForm);
+  fillProfileForm();
   editModal.open();
 });
 

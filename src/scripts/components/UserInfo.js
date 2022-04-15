@@ -17,10 +17,10 @@ export default class UserInfo {
 
   getUserAvatar() {
     return {
-      avatar: this._avatar.src
-    }
-}
-setUserAvatar({avatar}) {
+      avatar: this._avatar.src,
+    };
+  }
+  setUserAvatar({ avatar }) {
     this._avatar.src = avatar;
-}
+  }
 }

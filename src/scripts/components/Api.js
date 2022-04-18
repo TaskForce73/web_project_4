@@ -1,67 +1,71 @@
-const customFetch = (url, headers) =>
-  fetch(url, headers)
-    .then((res) =>
-      res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-    )
-    .catch(console.log);
-
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
 
+  _checkResponse(res) {
+    return res.ok ? res.json() : Promise.reject("Error!" + res.statusText);
+  }
+
   getInitialCards() {
-    return customFetch(`${this._baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    });
+    })
+    .then(this._checkResponse)
   }
 
   getUserInfo() {
-    return customFetch(`${this._baseUrl}/users/me`, {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    });
+    })
+    .then(this._checkResponse)
   }
 
   createCard({ name, link }) {
-    return customFetch(`${this._baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         name,
         link,
       }),
-    });
+    })
+    .then(this._checkResponse)
   }
 
   deleteCard(cardId) {
-    return customFetch(`${this._baseUrl}/cards/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    });
+    })
+    .then(this._checkResponse)
   }
 
   likeCard(cardId) {
-    return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this._headers,
-    });
+    })
+    .then(this._checkResponse)
   }
 
   dislikeCard(cardId) {
-    return customFetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    });
+    })
+    .then(this._checkResponse)
   }
 
   changeAvatar(avatar) {
-    return customFetch(`${this._baseUrl}/users/me/avatar`, {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         avatar,
       }),
-    });
+    })
+    .then(this._checkResponse)
   }
 }

@@ -1,6 +1,6 @@
 export default class Card {
   constructor(
-    { data, handleCardClick, handleDeleteButton, handleLikeButton},
+    { data, handleCardClick, handleDeleteButton, handleLikeButton },
     userId,
     cardSelector
   ) {
@@ -35,12 +35,12 @@ export default class Card {
     return this._id;
   }
 
-    _deleteButton() { 
-      const cardTrashButton = this._element.querySelector(".element__bin"); 
-      if (this._owner._id !== this._userId) { 
-          cardTrashButton.remove();
-      } 
-  } 
+  _deleteButton() {
+    const cardTrashButton = this._element.querySelector(".element__bin");
+    if (this._owner._id !== this._userId) {
+      cardTrashButton.remove();
+    }
+  }
 
   _setEventListeners() {
     this._elementBin.addEventListener("click", () => {

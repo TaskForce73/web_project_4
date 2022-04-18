@@ -11,15 +11,13 @@ export default class Api {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    })
-    .then(this._checkResponse)
+    }).then(this._checkResponse);
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    })
-    .then(this._checkResponse)
+    }).then(this._checkResponse);
   }
 
   createCard({ name, link }) {
@@ -30,32 +28,28 @@ export default class Api {
         name,
         link,
       }),
-    })
-    .then(this._checkResponse)
+    }).then(this._checkResponse);
   }
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    })
-    .then(this._checkResponse)
+    }).then(this._checkResponse);
   }
 
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this._headers,
-    })
-    .then(this._checkResponse)
+    }).then(this._checkResponse);
   }
 
   dislikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    })
-    .then(this._checkResponse)
+    }).then(this._checkResponse);
   }
 
   changeAvatar(avatar) {
@@ -65,7 +59,6 @@ export default class Api {
       body: JSON.stringify({
         avatar,
       }),
-    })
-    .then(this._checkResponse)
+    }).then(this._checkResponse);
   }
 }

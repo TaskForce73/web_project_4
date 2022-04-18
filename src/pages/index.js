@@ -68,8 +68,8 @@ const avatarEditModal = new PopupWithForm(".popup_profile_changer", (data) => {
       avatarEditModal.close();
     })
     .catch((err) => console.log(err))
-    .finally((text) => {
-      avatarEditModal.changeButtonText(text = "Save")
+    .finally(() => {
+      avatarEditModal.changeButtonText("Save");
     });
 });
 avatarEditModal.setEventListeners();
@@ -78,12 +78,12 @@ const addCardModal = new PopupWithForm(".popup_card_publisher", (data) => {
   api
     .createCard({ name: data.description, link: data.link })
     .then((res) => {
-      section.addItem(createNewCard(res));
+      section.addItem(createNewCard(res, res.owner._id));
       addCardModal.close();
     })
     .catch((err) => console.log(err))
-    .finally((text) => {
-      addCardModal.changeButtonText(text = "Save")
+    .finally(() => {
+      addCardModal.changeButtonText("Save");
     });
 });
 addCardModal.setEventListeners();
@@ -95,10 +95,7 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
   })
   .catch((err) => {
     console.log(err);
-  })
-  .finally((text) =>{
-    editModal.changeButtonText(text ="Save");
-});
+  });
 
 const section = new Section(
   {
@@ -115,7 +112,7 @@ const userInfo = new UserInfo({
   avatarSelector: ".profile__image",
 });
 
-function createNewCard(data) {
+function createNewCard(data, id) {
   const card = new Card(
     {
       data,
@@ -165,6 +162,7 @@ function fillProfileForm() {
   const userData = userInfo.getUserInfo();
   profileInputName.value = userData.name;
   profileInputAbout.value = userData.job;
+  editModal.changeButtonText("Save");
 }
 
 editProfileButton.addEventListener("click", () => {

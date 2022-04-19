@@ -12,18 +12,16 @@ import { pageSettings } from "../scripts/utils/constants";
 const plusProfileButton = document.querySelector(".profile__plus");
 const profileForm = document.querySelector(".popup__form");
 const editProfileButton = document.querySelector(".profile__edit");
+const profileInputName = document.querySelector(".popup__input-name");
+const profileInputAbout = document.querySelector(".popup__input-about");
+const profileInputAvatar = document.querySelector(".popup__input-avatar");
 const cardForm = document.querySelector(".popup__form_second");
 const editAvatarButton = document.querySelector(".profile__overlay");
 const avatarForm = document.querySelector(".popup__form_avatar");
-let id;
 
 import headerSrc from "../images/header.svg";
 const headerImage = document.getElementById("around-the-us");
 headerImage.src = headerSrc;
-
-import profileSrc from "../images/Cousteau.png";
-const profileImage = document.getElementById("profile-image");
-profileImage.src = profileSrc;
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
@@ -56,7 +54,7 @@ const editModal = new PopupWithForm(".popup_profile_adder", (data) => {
   api
     .editProfile({ name: data.name, about: data.about })
     .then((res) => {
-      userInfo.setUserInfo({ name: res.name, about: res.about });
+      userInfo.setUserInfo({ name: res.name, about: res.about })
       editModal.close();
     })
     .catch((err) => console.log(err))
@@ -112,11 +110,13 @@ const section = new Section(
   ".elements__list"
 );
 
-const userInfo = new UserInfo({
-  profileNameSelector: ".profile__author",
-  profileJobSelector: ".profile__text",
-  avatarSelector: ".profile__image",
-});
+const userInfo = new UserInfo(
+  ".profile__author", 
+
+ ".profile__text", 
+
+ ".profile__image", 
+);
 
 function createNewCard(data, id) {
   const card = new Card(
@@ -164,8 +164,15 @@ function createNewCard(data, id) {
   return cardElement;
 }
 
+function fillProfileForm() {
+  const userData = userInfo.getUserInfo();
+  profileInputName.value = userData.name;
+  profileInputAbout.value = userData.job;
+}
+
 editProfileButton.addEventListener("click", () => {
   formValidators[profileForm.getAttribute("name")].resetValidation();
+  fillProfileForm();
   editModal.open();
 });
 

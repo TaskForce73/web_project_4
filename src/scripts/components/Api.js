@@ -20,6 +20,17 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
+  editProfile({ name, about }) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      headers: this._headers,
+      method: "PATCH",
+      body: JSON.stringify({
+        name,
+        about,
+      }),
+    }).then(this._checkResponse);
+  }
+
   createCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",

@@ -13,8 +13,6 @@ const plusProfileButton = document.querySelector(".profile__plus");
 const profileForm = document.querySelector(".popup__form");
 const editProfileButton = document.querySelector(".profile__edit");
 const cardForm = document.querySelector(".popup__form_second");
-const profileInputName = document.querySelector(".popup__input-name");
-const profileInputAbout = document.querySelector(".popup__input-about");
 const editAvatarButton = document.querySelector(".profile__overlay");
 const avatarForm = document.querySelector(".popup__form_avatar");
 let id;
@@ -55,8 +53,16 @@ const imageModal = new PopupWithImage(".popup_big_image");
 imageModal.setEventListeners();
 
 const editModal = new PopupWithForm(".popup_profile_adder", (data) => {
-  userInfo.setUserInfo(data);
-  editModal.close();
+  api
+    .editProfile({ name: data.name, about: data.about })
+    .then((res) => {
+      userInfo.setUserInfo({ name: res.name, about: res.about });
+      editModal.close();
+    })
+    .catch((err) => console.log(err))
+    .finally(() => {
+      editModal.changeButtonText("Save");
+    });
 });
 editModal.setEventListeners();
 
@@ -132,12 +138,12 @@ function createNewCard(data, id) {
         });
       },
       handleLikeButton: (likeButton, id) => {
-        if (likeButton.classList.contains("element__button_active")) {
+        if (card.isLiked()) {
           api
             .dislikeCard(id)
             .then((res) => {
               card.displayTotalLikes(res.likes.length);
-              card.toggleLikeButton(likeButton);
+              card.unlike(likeButton);
             })
             .catch((err) => console.log(err));
         } else {
@@ -145,7 +151,7 @@ function createNewCard(data, id) {
             .likeCard(id)
             .then((res) => {
               card.displayTotalLikes(res.likes.length);
-              card.toggleLikeButton(likeButton);
+              card.like(likeButton);
             })
             .catch((err) => console.log(err));
         }
@@ -158,16 +164,8 @@ function createNewCard(data, id) {
   return cardElement;
 }
 
-function fillProfileForm() {
-  const userData = userInfo.getUserInfo();
-  profileInputName.value = userData.name;
-  profileInputAbout.value = userData.job;
-  editModal.changeButtonText("Save");
-}
-
 editProfileButton.addEventListener("click", () => {
   formValidators[profileForm.getAttribute("name")].resetValidation();
-  fillProfileForm();
   editModal.open();
 });
 

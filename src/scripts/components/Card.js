@@ -15,6 +15,7 @@ export default class Card {
     this._userId = userId;
     this._likes = data.likes;
     this._likesAmount = data.likes.length;
+    this.liked = false;
   }
 
   _getTemplate() {
@@ -54,12 +55,22 @@ export default class Card {
     });
   }
 
-  toggleLikeButton(likeButton) {
-    likeButton.classList.toggle("element__button_active");
+  like(likeButton) {
+    likeButton.classList.add("element__button_active");
+    this._liked = true;
+  }
+
+  unlike(likeButton) {
+    likeButton.classList.remove("element__button_active");
+    this._liked = false;
   }
 
   displayTotalLikes(totalLikes) {
     this._counter.textContent = totalLikes;
+  }
+
+  isLiked() {
+    return this._liked;
   }
 
   _handleCardLikes() {

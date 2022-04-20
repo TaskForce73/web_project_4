@@ -17,7 +17,7 @@ const profileInputName = document.querySelector(".popup__input-name");
 const profileInputAbout = document.querySelector(".popup__input-about"); 
 const editAvatarButton = document.querySelector(".profile__overlay"); 
 const avatarForm = document.querySelector(".popup__form_avatar"); 
-const profileInputAvatar = document.querySelector(".popup__input-avatar"); 
+
 import headerSrc from "../images/header.svg"; 
 const headerImage = document.getElementById("around-the-us"); 
 headerImage.src = headerSrc; 
@@ -70,7 +70,6 @@ const avatarEditModal = new PopupWithForm(".popup_profile_changer", (data) => {
     .then((res) => {
       userInfo.setUserAvatar({ avatar: res.avatar });
       avatarEditModal.close();
-      profileInputAvatar.src = res.avatar;
     })
     .catch((err) => console.log(err))
     .finally(() => {

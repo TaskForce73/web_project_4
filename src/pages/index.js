@@ -1,60 +1,63 @@
-import "../pages/index.css";
-import Card from "../scripts/components/Card";
-import PopupWithImage from "../scripts/components/PopupWithImage";
-import PopupWithForm from "../scripts/components/PopupWithForm";
-import UserInfo from "../scripts/components/UserInfo";
-import Section from "../scripts/components/Section";
-import FormValidator from "../scripts/components/FromValidator";
-import PopupWithSubmit from "../scripts/components/PopupWithSubmit";
-import Api from "../scripts/components/Api";
-import { pageSettings } from "../scripts/utils/constants";
+import "../pages/index.css"; 
+import Card from "../scripts/components/Card"; 
+import PopupWithImage from "../scripts/components/PopupWithImage"; 
+import PopupWithForm from "../scripts/components/PopupWithForm"; 
+import UserInfo from "../scripts/components/UserInfo"; 
+import Section from "../scripts/components/Section"; 
+import FormValidator from "../scripts/components/FromValidator"; 
+import PopupWithSubmit from "../scripts/components/PopupWithSubmit"; 
+import Api from "../scripts/components/Api"; 
+import { pageSettings } from "../scripts/utils/constants"; 
 
-const plusProfileButton = document.querySelector(".profile__plus");
-const profileForm = document.querySelector(".popup__form");
-const editProfileButton = document.querySelector(".profile__edit");
-const profileInputName = document.querySelector(".popup__input-name");
-const profileInputAbout = document.querySelector(".popup__input-about");
-const profileInputAvatar = document.querySelector(".popup__input-avatar");
-const cardForm = document.querySelector(".popup__form_second");
-const editAvatarButton = document.querySelector(".profile__overlay");
-const avatarForm = document.querySelector(".popup__form_avatar");
+const plusProfileButton = document.querySelector(".profile__plus"); 
+const profileForm = document.querySelector(".popup__form"); 
+const editProfileButton = document.querySelector(".profile__edit"); 
+const cardForm = document.querySelector(".popup__form_second"); 
+const profileInputName = document.querySelector(".popup__input-name"); 
+const profileInputAbout = document.querySelector(".popup__input-about"); 
+const editAvatarButton = document.querySelector(".profile__overlay"); 
+const avatarForm = document.querySelector(".popup__form_avatar"); 
 
-import headerSrc from "../images/header.svg";
-const headerImage = document.getElementById("around-the-us");
-headerImage.src = headerSrc;
+import headerSrc from "../images/header.svg"; 
+const headerImage = document.getElementById("around-the-us"); 
+headerImage.src = headerSrc; 
 
-const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/group-12",
-  headers: {
-    authorization: "32b9efa0-6f35-4afe-975e-e3a6be43cfcb",
-    "Content-Type": "application/json",
-  },
-});
+import profileSrc from "../images/Cousteau.png";
+const profileImage = document.getElementById("profile-image");
+profileImage.src = profileSrc;
 
-const formValidators = {};
+const api = new Api({ 
+  baseUrl: "https://around.nomoreparties.co/v1/group-12", 
+  headers: { 
+    authorization: "32b9efa0-6f35-4afe-975e-e3a6be43cfcb", 
+    "Content-Type": "application/json", 
+  }, 
+}); 
 
-const enableValidation = (config) => {
-  const formList = Array.from(document.querySelectorAll(config.formSelector));
-  formList.forEach((formElement) => {
-    const validator = new FormValidator(config, formElement);
-    const formName = formElement.getAttribute("name");
-    formValidators[formName] = validator;
-    validator.enableValidation();
-  });
-};
-enableValidation(pageSettings);
+const formValidators = {}; 
 
-const confirmModal = new PopupWithSubmit(".popup_card_remover");
-confirmModal.setEventListeners();
+const enableValidation = (config) => { 
+  const formList = Array.from(document.querySelectorAll(config.formSelector)); 
+  formList.forEach((formElement) => { 
+    const validator = new FormValidator(config, formElement); 
+    const formName = formElement.getAttribute("name"); 
+    formValidators[formName] = validator; 
+    validator.enableValidation(); 
+  }); 
+}; 
+enableValidation(pageSettings); 
 
-const imageModal = new PopupWithImage(".popup_big_image");
-imageModal.setEventListeners();
+const confirmModal = new PopupWithSubmit(".popup_card_remover"); 
+confirmModal.setEventListeners(); 
+
+const imageModal = new PopupWithImage(".popup_big_image"); 
+imageModal.setEventListeners(); 
 
 const editModal = new PopupWithForm(".popup_profile_adder", (data) => {
   api
     .editProfile({ name: data.name, about: data.about })
     .then((res) => {
-      userInfo.setUserInfo({ name: res.name, about: res.about })
+      userInfo.setUserInfo({ name: res.name, about: res.about });
       editModal.close();
     })
     .catch((err) => console.log(err))
@@ -63,6 +66,7 @@ const editModal = new PopupWithForm(".popup_profile_adder", (data) => {
     });
 });
 editModal.setEventListeners();
+
 
 const avatarEditModal = new PopupWithForm(".popup_profile_changer", (data) => {
   api
@@ -101,22 +105,20 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
     console.log(err);
   });
 
-const section = new Section(
-  {
-    renderer: (cardData) => {
-      section.addItem(createNewCard(cardData));
+  const section = new Section(
+    {
+      renderer: (cardData) => {
+        section.addItem(createNewCard(cardData));
+      },
     },
-  },
-  ".elements__list"
-);
+    ".elements__list"
+  );
 
-const userInfo = new UserInfo(
-  ".profile__author", 
-
- ".profile__text", 
-
- ".profile__image", 
-);
+const userInfo = new UserInfo({ 
+  profileNameSelector: ".profile__author", 
+  profileJobSelector: ".profile__text", 
+  avatarSelector: ".profile__image", 
+}); 
 
 function createNewCard(data, id) {
   const card = new Card(
@@ -164,24 +166,24 @@ function createNewCard(data, id) {
   return cardElement;
 }
 
-function fillProfileForm() {
-  const userData = userInfo.getUserInfo();
-  profileInputName.value = userData.name;
-  profileInputAbout.value = userData.job;
-}
+function fillProfileForm() { 
+  const userData = userInfo.getUserInfo(); 
+  profileInputName.value = userData.name; 
+  profileInputAbout.value = userData.job; 
+} 
 
-editProfileButton.addEventListener("click", () => {
-  formValidators[profileForm.getAttribute("name")].resetValidation();
-  fillProfileForm();
-  editModal.open();
-});
+editProfileButton.addEventListener("click", () => { 
+  formValidators[profileForm.getAttribute("name")].resetValidation(); 
+  fillProfileForm(); 
+  editModal.open(); 
+}); 
 
-plusProfileButton.addEventListener("click", () => {
-  formValidators[cardForm.getAttribute("name")].resetValidation();
-  addCardModal.open();
-});
+plusProfileButton.addEventListener("click", () => { 
+  formValidators[cardForm.getAttribute("name")].resetValidation(); 
+  addCardModal.open(); 
+}); 
 
-editAvatarButton.addEventListener("click", () => {
-  formValidators[avatarForm.getAttribute("name")].resetValidation();
-  avatarEditModal.open();
-});
+editAvatarButton.addEventListener("click", () => { 
+  formValidators[avatarForm.getAttribute("name")].resetValidation(); 
+  avatarEditModal.open(); 
+}); 

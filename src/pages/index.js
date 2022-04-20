@@ -17,14 +17,10 @@ const profileInputName = document.querySelector(".popup__input-name");
 const profileInputAbout = document.querySelector(".popup__input-about"); 
 const editAvatarButton = document.querySelector(".profile__overlay"); 
 const avatarForm = document.querySelector(".popup__form_avatar"); 
-
+const profileInputAvatar = document.querySelector(".popup__input-avatar"); 
 import headerSrc from "../images/header.svg"; 
 const headerImage = document.getElementById("around-the-us"); 
 headerImage.src = headerSrc; 
-
-import profileSrc from "../images/Cousteau.png";
-const profileImage = document.getElementById("profile-image");
-profileImage.src = profileSrc;
 
 const api = new Api({ 
   baseUrl: "https://around.nomoreparties.co/v1/group-12", 
@@ -74,6 +70,7 @@ const avatarEditModal = new PopupWithForm(".popup_profile_changer", (data) => {
     .then((res) => {
       userInfo.setUserAvatar({ avatar: res.avatar });
       avatarEditModal.close();
+      profileInputAvatar.src = res.avatar;
     })
     .catch((err) => console.log(err))
     .finally(() => {
@@ -98,7 +95,8 @@ addCardModal.setEventListeners();
 
 Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then(([cardData, userData]) => {
-    userInfo.setUserInfo({ name: userData.name, about: userData.about });
+    userInfo.setUserInfo({ name: userData.name, about: userData.about});
+    userInfo.setUserAvatar({avatar: userData.avatar});
     section.render(cardData);
   })
   .catch((err) => {
